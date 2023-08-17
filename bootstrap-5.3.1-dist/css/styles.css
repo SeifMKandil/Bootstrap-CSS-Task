@@ -1,0 +1,58 @@
+:root {
+    --bluee: #1e90ff;
+    --white: #ffffff;
+}
+
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
+@media only screen and (max-width: 900px) {
+  body {
+    background-color: rgb(255, 230, 0);
+  }
+}
+
+table, th, td {
+    border: 1px solid rgb(2, 2, 2);
+}
+
+.bg-custom {
+        background-color: var(--bluee);
+}
+
+
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0; 
+}
+
+.content {
+    flex-grow: 1;
+}
+
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.length{
+    width: 700px;
+    height: 500px;
+    padding-left: 20px;
+}
+
+.custom-image {
+    max-width: 80%;
+    height: auto; 
+    padding-bottom: 50;
+}
+
