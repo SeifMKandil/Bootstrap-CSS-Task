@@ -22,7 +22,7 @@ function createImage(imagePath, x, y, isUnique, screenWidth, screenHeight) {
         mirroredImg.style.position = "absolute";
         mirroredImg.style.width = "80px";
         mirroredImg.style.top = y + "px";
-        mirroredImg.style.left = (screenWidth - x - 80) + "px";
+        mirroredImg.style.right = x + "px";
         container.appendChild(mirroredImg);
     }
     else {
