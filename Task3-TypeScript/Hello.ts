@@ -2,7 +2,7 @@
             var numImages: number = 4;
             var uniqueImageIndex: number = 0;
 
-            void function createImage(imagePath: string, x: number, y: number, isUnique: boolean, screenWidth: number, screenHeight: number): HTMLImageElement {
+             function createImage(imagePath: string, x: number, y: number, isUnique: boolean, screenWidth: number, screenHeight: number): HTMLImageElement {
                 const container: HTMLDivElement = document.createElement('div');
                 const vl: HTMLDivElement = document.createElement('div');
 
@@ -26,7 +26,7 @@
                     mirroredImg.style.position = "absolute";
                     mirroredImg.style.width = "80px";
                     mirroredImg.style.top = y + "px";
-                    mirroredImg.style.left = (screenWidth - x - 80) + "px";
+                    mirroredImg.style.right = x + "px";
 
                     container.appendChild(mirroredImg);
                 } else {
@@ -45,14 +45,14 @@
                 return img;
             }
 
-           void function resetGame() {
+            function resetGame() {
                 const leftPanel = document.querySelector('.left-panel');
                 if (leftPanel) {
                     leftPanel.innerHTML = '';
                 }
             }
 
-            void function Game() {
+             function Game() {
                 const screenWidth: number = window.innerWidth;
                 const screenHeight: number = window.innerHeight;
                 console.log(screenWidth, screenHeight);
@@ -69,4 +69,4 @@
             }
 
             Game();
-        
+
