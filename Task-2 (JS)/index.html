@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<div class="flex-container">
+    <div class="left-panel">
+        
+        <script type="text/javascript">
+            let level = 1;
+            let numImages = 4;
+            let uniqueImageIndex = 0;
+
+            function createImage(imagePath, x, y, isUnique, screenWidth , screenHeight) {
+                const container = document.createElement('div');
+                const vl = document.createElement('div');
+
+                vl.className = "vl"
+                container.className = "flex-child";
+
+                const img = document.createElement('img');
+                img.src = imagePath;
+                img.style.position = "absolute";
+                img.style.width = "80px";
+                img.style.top = y + "px";
+                img.style.left = x + "px";
+
+                container.appendChild(img);
+                container.appendChild(vl)
+                document.querySelector('.left-panel').appendChild(container);
+
+                if (!isUnique) {
+                    const mirroredImg = document.createElement('img');
+                    mirroredImg.src = imagePath;
+                    mirroredImg.style.position = "absolute";
+                    mirroredImg.style.width = "80px";
+                    mirroredImg.style.top = y + "px";
+                    mirroredImg.style.left =(screenWidth - x - 80) + "px";
+
+                    container.appendChild(mirroredImg);
+                } else {
+                    img.classList.add("unique-image");
+                    img.style.cursor = "pointer";
+                    img.addEventListener('click', () => {
+                        level++;
+                        numImages++;
+                        uniqueImageIndex = Math.floor(Math.random() * numImages);
+                        alert('Congratulations! Moving to Level ' + level);
+                        resetGame();
+                        Game();
+                    });
+                }
+
+                return img;
+            }
+
+            function resetGame() {
+                document.querySelector('.left-panel').innerHTML = '';
+            }
+
+            function Game() {
+                const screenWidth = window.innerWidth;
+                const screenHeight = window.innerHeight;
+                console.log(screenWidth , screenHeight);
+
+                const images = ["./imgs/Face.png", './imgs/Face1.png', './imgs/Face2.png' , './imgs/Face3.png' , './imgs/Face4.png' , './imgs/Face5.png','./imgs/Face6.png','./imgs/Face7.png' , './imgs/Face8.png' , './imgs/Face9.png'] ;
+
+                for (let i = 0; i <numImages; i++) {
+                    const imagePath = images[i];
+                    const randomY = Math.random() * (screenHeight - 180);
+                    const randomX = Math.random() * ((screenWidth / 2) - 180 );
+                    
+                    createImage(imagePath, randomX, randomY, i === uniqueImageIndex , screenWidth , screenHeight);
+                }
+            }
+
+            Game();
+        </script>
+    </div>
+</div>
+
+<style>
+    .flex-container {
+        display: flex;
+        width: 1330px;
+        height: 631px;
+        position: absolute;
+        border: 4px solid rgb(224, 22, 22); /* Add a border around the screen */
+        background-color: rgb(0, 0, 0);
+    }
+
+    .flex-child {
+        position: relative;
+        
+    }
+    
+
+    .flex-child img {
+        position: absolute;
+        width: 80px;
+    }
+
+    .left-panel {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .vl {
+      border-left: 6px solid rgb(236, 12, 12);
+      height: 800px;
+      position: absolute;
+      left: 50%;
+      margin-left: -3px;
+      top: 0;
+    }
+</style>
+
+</body>
+</html>
