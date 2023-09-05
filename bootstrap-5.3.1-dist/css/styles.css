@@ -44,15 +44,9 @@ body {
     padding: 10px;
 }
 
-.length{
-    width: 700px;
-    height: 500px;
-    padding-left: 20px;
-}
 
-.custom-image {
-    max-width: 80%;
-    height: auto; 
-    padding-bottom: 50;
+card {
+    width: 18rem;
+    height: 100%;
 }
 
